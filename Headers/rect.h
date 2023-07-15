@@ -1,6 +1,7 @@
 #pragma once
 #include "window.h"
 
+// Rectangle class - Decalres all attributes used
 class Rect {
 public:
     Rect(int width, int height, int x, int y, int red, int green, int blue, int alpha);

@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Text class - Decalres all attributes used
 class Text {
 public:
     Text(SDL_Renderer *renderer, const string &font_path, int font_size, const string &message_text,const SDL_Colour &colour);

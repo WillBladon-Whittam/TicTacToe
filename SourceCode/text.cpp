@@ -9,6 +9,7 @@ Text::Text(SDL_Renderer *renderer, const string &font_path, int font_size, const
     SDL_QueryTexture(_text_texture, nullptr, nullptr, &_text_rect.w, &_text_rect.h);
 }
 
+// Displays the text
 void Text::display(int x, int y, SDL_Renderer *renderer) const {
     _text_rect.x = x;
     _text_rect.y = y;
@@ -16,6 +17,7 @@ void Text::display(int x, int y, SDL_Renderer *renderer) const {
     SDL_RenderCopy(renderer, _text_texture, nullptr, &_text_rect);
 }
 
+// Loads the SDL font, text surface and texture
 SDL_Texture *Text::loadFont(SDL_Renderer *renderer, const string &font_path, int font_size, const string &message_text,const SDL_Colour &colour){
     TTF_Font *font = TTF_OpenFont(font_path.c_str(), font_size);
     if (!font) {

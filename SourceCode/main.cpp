@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// A pollEvents function that uses the same event, so events will work accross everything. (window, rect ...)
 void pollEvents(Window &window, Rect &rect) {
     SDL_Event event;
 
@@ -13,6 +14,7 @@ void pollEvents(Window &window, Rect &rect) {
     }
 }
 
+// Main Loop
 int main(int argc, char **argv) {
 
     Window window("TicTacToe", 800, 600);

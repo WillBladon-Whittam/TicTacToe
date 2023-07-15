@@ -2,11 +2,13 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
+// Constructor for Rect
 Rect::Rect(int width, int height, int x, int y, int red, int green, int blue, int alpha) : 
 _width(width), _height(height), _x(x), _y(y), _red(red), _green(green), _blue(blue), _alpha(alpha)
 {
 }
 
+// Constructor for an image
 Rect::Rect(int width, int height, int x, int y, const string &image_path) : 
 _width(width), _height(height), _x(x), _y(y)
 {
@@ -21,10 +23,12 @@ _width(width), _height(height), _x(x), _y(y)
     SDL_FreeSurface(surface);
 }
 
+// Destrctor for a Rect / Image
 Rect::~Rect() {
     SDL_DestroyTexture(_cross_texture);
 }
 
+// Displays the image or the rectangle
 void Rect::draw() const {
     SDL_Rect rect = { _x, _y, _width, _height };
     if (_cross_texture) {
@@ -36,6 +40,7 @@ void Rect::draw() const {
     }
 };
 
+// Events for the window
 void Rect::pollEvents(SDL_Event &event){
     if (event.type == SDL_KEYDOWN) {
         switch (event.key.keysym.sym) {

@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Window class - Decalres all attributes used
 class Window {
 public:
     Window(const string &title, int width, int height);
@@ -11,21 +12,20 @@ public:
 
     void pollEvents(SDL_Event &event);
     void clear() const;
+
     inline bool isClosed() const { return _closed; }
 
-private:
-    bool init();
+    static SDL_Renderer *renderer;
 
 private:
     string _title;
+
     int _width = 800;
     int _height = 600;
 
+    bool init();
     bool _closed = false;
 
     SDL_Window *_window = nullptr;
-
-public:
-    static SDL_Renderer *renderer;
 
 };

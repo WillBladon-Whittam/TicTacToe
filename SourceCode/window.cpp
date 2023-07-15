@@ -7,12 +7,15 @@ using namespace std;
 
 SDL_Renderer *Window::renderer = nullptr;
 
+// Constrctor for window class
 Window::Window(const string &title, int width, int height) :
 _title(title), _width(width), _height(height)
 {
     _closed = !init();
 }
 
+
+// Destructor for the windows class
 Window::~Window()
 {
     SDL_DestroyRenderer(renderer);
@@ -22,6 +25,7 @@ Window::~Window()
     SDL_Quit();
 }
 
+// Initalises SDL window, images and text
 bool Window::init() {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         cerr << "Failed to inititalse SDL.\n";
@@ -60,24 +64,19 @@ bool Window::init() {
         
 };
 
+// Events for the window (ESC to close)
 void Window::pollEvents(SDL_Event &event) {
     switch (event.type) {
         case SDL_QUIT:
             _closed = true;
             break;
 
-        case SDL_KEYDOWN:
-            switch (event.key.keysym.sym) {
-                case SDLK_ESCAPE:
-                    _closed = true;
-                    break;
-            }
-
         default:
             break;
     }
 }
 
+// Sets up the window
 void Window::clear() const {
     SDL_RenderPresent(renderer);
     SDL_SetRenderDrawColor(renderer, 129, 133, 137, 255);
