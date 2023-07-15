@@ -1,4 +1,6 @@
 .vscode/*
 src/*
+releases/*
+bin/*
 *.exe
 *.dll

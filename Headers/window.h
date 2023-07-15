@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <SDL2/SDL.h>
 
@@ -8,7 +9,7 @@ public:
     Window(const string &title, int width, int height);
     ~Window();
 
-    void pollEvents();
+    void pollEvents(SDL_Event &event);
     void clear() const;
     inline bool isClosed() const { return _closed; }
 
@@ -23,6 +24,8 @@ private:
     bool _closed = false;
 
     SDL_Window *_window = nullptr;
-    SDL_Renderer *_renderer = nullptr;
+
+public:
+    static SDL_Renderer *renderer;
 
 };
