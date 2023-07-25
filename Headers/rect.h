@@ -9,7 +9,8 @@ public:
     ~Rect();
 
     void draw() const;
-    void pollEvents(SDL_Event &event);
+    void grid() const;
+    void pollEvents() const;
 
 private:
     int _width, _height;

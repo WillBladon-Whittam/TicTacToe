@@ -65,14 +65,16 @@ bool Window::init() {
 };
 
 // Events for the window (ESC to close)
-void Window::pollEvents(SDL_Event &event) {
-    switch (event.type) {
-        case SDL_QUIT:
-            _closed = true;
-            break;
+void Window::pollEvents() {
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+            case SDL_QUIT:
+                _closed = true;
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
     }
 }
 
