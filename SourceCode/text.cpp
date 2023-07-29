@@ -1,5 +1,4 @@
 #include "text.h"
-#include "window.h"
 #include <iostream>
 
 using namespace std;

@@ -1,5 +1,5 @@
 #pragma once
-#include "window.h"
+#include "renderer.h"
 
 // Rectangle class - Decalres all attributes used
 class Rect {
@@ -10,7 +10,6 @@ public:
 
     void draw() const;
     void grid() const;
-    void pollEvents() const;
 
 private:
     int _width, _height;
