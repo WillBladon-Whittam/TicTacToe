@@ -41,31 +41,5 @@ void Rect::draw() const {
         SDL_SetRenderDrawColor(Renderer::_sdl_renderer, _red, _green, _blue, _alpha);
         SDL_RenderFillRect(Renderer::_sdl_renderer, &rect);
     }
-    SDL_RenderPresent(Renderer::_sdl_renderer);
+    // SDL_RenderPresent(Renderer::_sdl_renderer);
 };
-
-
-// Displays the grid
-void Rect::grid() const {
-    int x_centre = 325;
-    int y_centre = 225;
-
-    int x_positions[9] = {x_centre, x_centre+_width+10, x_centre-_width-10};
-    int y_positions[9] = {y_centre, y_centre+_height+10, y_centre-_height-10};    
-
-    SDL_Rect rect = { x_centre-_width-10, y_centre-_height-10, _width*3+20, _height*3+20 };
-    SDL_SetRenderDrawColor(Renderer::_sdl_renderer, 0, 0, 0, _alpha);
-    SDL_RenderFillRect(Renderer::_sdl_renderer, &rect);
-
-    // SDL_Rect rect2 = { x_positions[0], x_positions[1], _width, _height };
-    // SDL_SetRenderDrawColor(Window::renderer, rand()%255, rand()%255, rand()%255, _alpha);
-    // SDL_RenderFillRect(Window::renderer, &rect2);
-
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++){
-            SDL_Rect rect = { x_positions[i], y_positions[j], _width, _height };
-            SDL_SetRenderDrawColor(Renderer::_sdl_renderer, 129, 133, 137, _alpha);
-            SDL_RenderFillRect(Renderer::_sdl_renderer, &rect);
-        }
-    }
-}

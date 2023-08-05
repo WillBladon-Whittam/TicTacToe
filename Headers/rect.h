@@ -9,7 +9,6 @@ public:
     ~Rect();
 
     void draw() const;
-    void grid() const;
 
 private:
     int _width, _height;
