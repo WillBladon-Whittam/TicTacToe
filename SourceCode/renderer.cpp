@@ -105,9 +105,12 @@ void Renderer::Render() {
         if (Game::grid_toggle[i] == "X") {
             Rect rect(125, 125, positions[i].first, positions[i].second, "assets/Cross.png");
             rect.draw();
+        } else if (Game::grid_toggle[i] == "O") {
+            Rect rect(125, 125, positions[i].first, positions[i].second, "assets/Nought.png");
+            rect.draw();
         }
     }
-    
+
     // Update screen
     SDL_RenderPresent(_sdl_renderer);
 }

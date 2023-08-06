@@ -28,11 +28,9 @@ void Controller::HandleInput(bool &running) const {
               for (int j=0; j < 360; j+=130) {
                 counter+=1;
                 if ((x_min+i < xMouse && xMouse < x_max+i) && (y_min+j < yMouse && yMouse < y_max+j)) {
-                  cout << counter << "\n";
                   if (Game::grid_toggle[counter] == " ") {
                     Game::grid_toggle[counter] = "X";
-                  } else if (Game::grid_toggle[counter] == "X") {
-                    Game::grid_toggle[counter] = " ";
+                    Game::placed = true;
                   }
               }
             }
