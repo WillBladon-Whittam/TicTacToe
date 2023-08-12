@@ -6,8 +6,6 @@
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
 
-using namespace std;
-
 // Create the window and renderer
 Renderer::Renderer(const int width, int height) :
 _window_width(width), _window_height(height)
@@ -89,6 +87,7 @@ void Renderer::grid() {
 }
 
 void Renderer::Render() {
+
     // Clear screen
     SDL_SetRenderDrawColor(_sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
     SDL_RenderClear(_sdl_renderer);

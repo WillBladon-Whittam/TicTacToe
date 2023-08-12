@@ -3,7 +3,9 @@
 #include <SDL2/SDL.h>
 #include "rect.h"
 #include <vector>
-#include <chrono>
+#include <thread>
+#include <unistd.h>
+#include <chrono> 
 #include <thread>
 
 void Game::Run(Controller const &controller, Renderer &renderer) {
@@ -12,9 +14,12 @@ void Game::Run(Controller const &controller, Renderer &renderer) {
     // Main game loop
     while (running) {
         // Input, Update, Render - the main game loop.
-        Update();
-        renderer.Render();
+        thread thread_update(Game::Update, this);
+        thread thread_render(Renderer::Render, &renderer);
         controller.HandleInput(running);
+        cout << "FINSIHED\n";
+        thread_update.join();
+        thread_render.join();
     }
 }
 
@@ -80,6 +85,7 @@ void Game::Update() {
         }
 
         // Selects a random
+        this_thread::sleep_for(chrono::milliseconds(1000));
         if (index_values.size() == 0) {
             cout << "Game Draw";
             resetGame();
