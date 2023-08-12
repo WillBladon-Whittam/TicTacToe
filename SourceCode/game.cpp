@@ -17,7 +17,6 @@ void Game::Run(Controller const &controller, Renderer &renderer) {
         thread thread_update(Game::Update, this);
         thread thread_render(Renderer::Render, &renderer);
         controller.HandleInput(running);
-        cout << "FINSIHED\n";
         thread_update.join();
         thread_render.join();
     }

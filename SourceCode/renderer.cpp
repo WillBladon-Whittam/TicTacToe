@@ -75,7 +75,7 @@ void Renderer::grid() {
         positions[i].second = top_left.second+y_displacement;
 
         // Draw the square
-        Rect rect = { _grid_width, _grid_height, positions[i].first, positions[i].second, 129, 133, 137, 255 };
+        Rect rect = { _grid_width, _grid_height, positions[i].first, positions[i].second, 255, 255, 255, 255 };
         rect.draw();
 
         y_displacement += _grid_height+10;
@@ -89,12 +89,12 @@ void Renderer::grid() {
 void Renderer::Render() {
 
     // Clear screen
-    SDL_SetRenderDrawColor(_sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+    SDL_SetRenderDrawColor(_sdl_renderer, 255, 255, 255, 0xFF);
     SDL_RenderClear(_sdl_renderer);
 
     // Create text
-    Text text(_sdl_renderer, "assets/Russo_One.ttf", 30, "TicTacToe", {255, 0, 0, 255});
-    text.display(315, 20, _sdl_renderer);
+    Text text(_sdl_renderer, "assets/ComicSansBold.ttf", 50, "TicTacToe", {255, 0, 0, 255});
+    text.display(265, 5, _sdl_renderer);
 
     // Create grid
     grid();
