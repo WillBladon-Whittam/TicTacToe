@@ -14,4 +14,7 @@ public:
 
     inline static bool placed = false;
 
+    inline static int cross_wins = 0;
+    inline static int nought_win = 0;
+
 };

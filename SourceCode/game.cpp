@@ -35,10 +35,12 @@ void Game::checkWon() {
     for (int i=0; i < 9; i+=3) {
         if (grid_toggle[i] == "X" and grid_toggle[i+1] == "X" and grid_toggle[i+2] == "X") {
             cout << "Crosses Wins! \n";
+            cross_wins+=1;
             resetGame();
 
         } else if (grid_toggle[i] == "O" and grid_toggle[i+1] == "O" and grid_toggle[i+2] == "O") {
             cout << "Noughts Wins! \n";
+            nought_win+=1;
             resetGame();
         }
     }
@@ -47,25 +49,31 @@ void Game::checkWon() {
     for (int i=0; i < 9; i+=1) {
         if (grid_toggle[i] == "X" and grid_toggle[i+3] == "X" and grid_toggle[i+6] == "X") {
             cout << "Crosses Wins! \n";
+            cross_wins+=1;
             resetGame();
         } else if (grid_toggle[i] == "O" and grid_toggle[i+3] == "O" and grid_toggle[i+6] == "O") {
             cout << "Noughts Wins! \n";
+            nought_win+=1;
             resetGame();
         }
     }
     // check diagonals
     if (grid_toggle[0] == "X" and grid_toggle[4] == "X" and grid_toggle[8] == "X") {
         cout << "Crosses Wins! \n";
+        cross_wins+=1;
         resetGame();
     } else if (grid_toggle[0] == "O" and grid_toggle[4] == "O" and grid_toggle[8] == "O") {
         cout << "Noughts Wins! \n";
+        nought_win+=1;
         resetGame();
     }
     if (grid_toggle[2] == "X" and grid_toggle[4] == "X" and grid_toggle[6] == "X") {
         cout << "Crosses Wins! \n";
+        cross_wins+=1;
         resetGame();
     } else if (grid_toggle[2] == "O" and grid_toggle[4] == "O" and grid_toggle[6] == "O") {
         cout << "Noughts Wins! \n";
+        nought_win+=1;
         resetGame();
     }
 }

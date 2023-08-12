@@ -24,6 +24,9 @@ private:
     int _grid_width = 120;
     int _grid_height = 120;
 
+    int _scoreboard_width = 400;
+    int _scoreboard_height = 50;
+
     void grid();
 
     pair <int, int> positions[9];  

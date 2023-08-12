@@ -99,6 +99,38 @@ void Renderer::Render() {
     // Create grid
     grid();
 
+    // Create scoreboard
+    int active_rgb = 140;
+    int inactive_rgb = 206;
+
+    if (Game::placed == true) {
+        Rect cross_scoreboard_rect = { _scoreboard_width, _scoreboard_height, 0, _window_height-_scoreboard_height, inactive_rgb, inactive_rgb, inactive_rgb, 255 };
+        Rect nought_scoreboard_rect = { _scoreboard_width, _scoreboard_height, _window_width-_scoreboard_width, _window_height-_scoreboard_height, active_rgb, active_rgb, active_rgb, 255 };
+        cross_scoreboard_rect.draw();
+        nought_scoreboard_rect.draw();
+    } else {
+        Rect cross_scoreboard_rect = { _scoreboard_width, _scoreboard_height, 0, _window_height-_scoreboard_height, active_rgb, active_rgb, active_rgb, 255 };
+        Rect nought_scoreboard_rect = { _scoreboard_width, _scoreboard_height, _window_width-_scoreboard_width, _window_height-_scoreboard_height, inactive_rgb, inactive_rgb, inactive_rgb, 255 };
+        cross_scoreboard_rect.draw();
+        nought_scoreboard_rect.draw();
+    }
+
+    // Draw cross on the scoreboard
+    Rect cross_scoreboard_image(_scoreboard_height, _scoreboard_height, 0, _window_height-_scoreboard_height, "assets/Cross.png");
+    cross_scoreboard_image.draw();
+
+    // Draw nought on the scoreboard
+    Rect nought_scoreboard_image(_scoreboard_height, _scoreboard_height, _window_width-_scoreboard_height, _window_height-_scoreboard_height, "assets/Nought.png");
+    nought_scoreboard_image.draw();
+
+    // Draw the scoreboard counts
+    Text text_cross_score_count(_sdl_renderer, "assets/ComicSansBold.ttf", 35, to_string(Game::cross_wins), {0, 0, 0, 255});
+    text_cross_score_count.display(_scoreboard_width/2, _window_height-_scoreboard_height, _sdl_renderer);
+
+    Text text_nought_score_count(_sdl_renderer, "assets/ComicSansBold.ttf", 35, to_string(Game::nought_win), {0, 0, 0, 255});
+    text_nought_score_count.display((_scoreboard_width/2)+_scoreboard_width-20, _window_height-_scoreboard_height, _sdl_renderer);
+
+
     // Draw crosses and noughts
     for (int i=0; i < 9; i++) {
         if (Game::grid_toggle[i] == "X") {
