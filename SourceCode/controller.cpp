@@ -9,7 +9,6 @@ using namespace std;
 
 // Handle inputs
 void Controller::HandleInput(bool &running) const {
-    SDL_Event e;
     while (SDL_PollEvent(&e)) {
     switch (e.type) {
       case SDL_QUIT:

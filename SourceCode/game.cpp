@@ -19,6 +19,8 @@ void Game::Run(Controller const &controller, Renderer &renderer) {
         controller.HandleInput(running);
         thread_update.join();
         thread_render.join();
+
+        SDL_Delay(25);
     }
 }
 
