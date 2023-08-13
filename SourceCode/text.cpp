@@ -3,9 +3,15 @@
 
 using namespace std;
 
+// Constructor for text
 Text::Text(SDL_Renderer *renderer, const string &font_path, int font_size, const string &message_text,const SDL_Colour &colour) {
     _text_texture = loadFont(renderer, font_path, font_size, message_text, colour);
     SDL_QueryTexture(_text_texture, nullptr, nullptr, &_text_rect.w, &_text_rect.h);
+}
+
+// Destrctor for a Text
+Text::~Text() {
+    SDL_DestroyTexture(_text_texture);
 }
 
 // Displays the text
@@ -33,6 +39,8 @@ SDL_Texture *Text::loadFont(SDL_Renderer *renderer, const string &font_path, int
                 cerr << "Failed to create text texture\n";
 
     }
+
+    TTF_CloseFont(font);
     SDL_FreeSurface(text_surface);
     return text_texture;
 }

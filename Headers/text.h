@@ -9,6 +9,7 @@ using namespace std;
 class Text {
 public:
     Text(SDL_Renderer *renderer, const string &font_path, int font_size, const string &message_text,const SDL_Colour &colour);
+    ~Text();
     void display(int x, int y, SDL_Renderer *renderer) const;
 
     static SDL_Texture *loadFont(SDL_Renderer *renderer, const string &font_path, int font_size, const string &message_text,const SDL_Colour &colour);
